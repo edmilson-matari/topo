@@ -14,7 +14,20 @@ export default function Navbar() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [submenuStack, setSubmenuStack] = useState([]);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState(null);
+  const [timeoutId, setTimeoutId] = useState(null);
 
+  const handleMouseEnter = (menu) => {
+    if (timeoutId) clearTimeout(timeoutId);
+    setActiveDropdown(menu);
+  };
+
+  const handleMouseLeave = () => {
+    const id = setTimeout(() => {
+      setActiveDropdown(null);
+    }, 200); // ← 200ms delay
+    setTimeoutId(id);
+  };
   const searchRef = useRef(null);
 
   const openSubmenu = (menu) => {
@@ -92,23 +105,70 @@ export default function Navbar() {
                 <a href="#" className="hover:text-cyan-300 transition-colors">
                   HOME
                 </a>
-                <div className="group relative">
+                {/* MAPS BY PLACE - with dropdown */}
+                <div
+                  className="relative"
+                  onMouseEnter={() => handleMouseEnter("place")}
+                  onMouseLeave={handleMouseLeave}
+                >
                   <button className="flex items-center gap-1 hover:text-cyan-300 transition-colors">
                     MAPS BY PLACE
                     <ChevronDown
                       size={16}
-                      className="transition-transform group-hover:rotate-180"
+                      className={`transition-transform ${
+                        activeDropdown === "place" ? "rotate-180" : ""
+                      }`}
                     />
                   </button>
+
+                  {activeDropdown === "place" && (
+                    <div className="absolute top-full left-0 mt-2 w-64 bg-[#17233a] border border-slate-700 rounded-md shadow-xl py-3 z-50">
+                      {mapsByPlace.map((item) => (
+                        <a
+                          key={item}
+                          href="#"
+                          className="block px-5 py-2.5 text-sm hover:bg-slate-800 hover:text-cyan-300 transition-colors"
+                        >
+                          {item}
+                        </a>
+                      ))}
+                    </div>
+                  )}
                 </div>
-                <div className="group relative">
+                {/* MAPS BY THEME - with dropdown */}
+                <div
+                  className="relative"
+                  onMouseEnter={() => handleMouseEnter("theme")}
+                  onMouseLeave={handleMouseLeave}
+                >
                   <button className="flex items-center gap-1 hover:text-cyan-300 transition-colors">
                     MAPS BY THEME
                     <ChevronDown
                       size={16}
-                      className="transition-transform group-hover:rotate-180"
+                      className={`transition-transform ${
+                        activeDropdown === "theme" ? "rotate-180" : ""
+                      }`}
                     />
                   </button>
+
+                  {activeDropdown === "theme" && (
+                    <div className="absolute top-full left-0 mt-2 w-80 bg-[#17233a] border border-slate-700 rounded-md shadow-xl py-3 z-50">
+                      <div className="px-5 pb-2 border-b border-slate-600 mb-1">
+                        <span className="text-xs uppercase tracking-wider text-slate-400">
+                          THEMES
+                        </span>
+                      </div>
+                      {mapsByTheme.map((item) => (
+                        <a
+                          key={item}
+                          href="#"
+                          className="block px-5 py-2.5 text-sm hover:bg-slate-800 hover:text-cyan-300 transition-colors"
+                        >
+                          {item}
+                        </a>
+                      ))}
+                    </div>
+                  )}
                 </div>
                 <a href="#" className="hover:text-cyan-300 transition-colors">
                   REVIEWS
@@ -348,14 +408,6 @@ export default function Navbar() {
               ))}
             </div>
           </div>
-        </div>
-
-        {/* Currency at bottom */}
-        <div className="p-5 border-t border-slate-700">
-          <button className="w-full flex items-center justify-between py-3 px-4 rounded-md hover:bg-slate-800/50 hover:text-cyan-300 transition">
-            ANGOLA (CAD $)
-            <ChevronLeft size={18} className="rotate-180" />
-          </button>
         </div>
       </div>
     </>

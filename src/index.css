@@ -1,1 +1,31 @@
 @import "tailwindcss";
+
+/* tailwind.config.js ou arquivo css */
+@layer utilities {
+  .animate-fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+  .animation-zoom-in {
+    animation: zoomIn 0.8s ease-out forwards;
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(1.02);
+  }
+  to {
+    transform: scale(1.12); /* Ajuste o valor final para mais/menos zoom */
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

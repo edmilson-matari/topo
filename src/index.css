@@ -6,7 +6,7 @@
     animation: fadeInUp 0.8s ease-out forwards;
   }
   .animation-zoom-in {
-    animation: zoomIn 0.8s ease-out forwards;
+    animation: zoomIn 3s ease-out forwards;
   }
 }
 
@@ -15,7 +15,7 @@
     transform: scale(1.02);
   }
   to {
-    transform: scale(1.12); /* Ajuste o valor final para mais/menos zoom */
+    transform: scale(1.4); /* Ajuste o valor final para mais/menos zoom */
   }
 }
 

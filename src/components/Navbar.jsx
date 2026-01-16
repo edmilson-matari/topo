@@ -1,5 +1,7 @@
 // components/Navbar.jsx
 import { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
+import logo from "../img/logo.png";
 import {
   ChevronLeft,
   ChevronDown,
@@ -7,7 +9,6 @@ import {
   Search,
   Menu,
   X,
-  User,
 } from "lucide-react";
 
 export default function Navbar() {
@@ -70,14 +71,11 @@ export default function Navbar() {
 
   // Sample data for submenus
   const mapsByPlace = [
-    "Africa",
-    "Asia",
-    "Europe",
-    "North America",
-    "South America",
-    "Australia & Oceania",
-    "Antarctica",
-    "World Maps",
+    "ORTOFOTO",
+    "MDT",
+    "CURVAS DE NÍVEL",
+    "MAPA TEMÁTICO",
+    "SHAPEFILE/GEODATABASE",
   ];
   const mapsByTheme = [
     "GEOLOGY MAPS",
@@ -96,14 +94,14 @@ export default function Navbar() {
   return (
     <>
       {/* === MAIN NAVBAR === */}
-      <nav className="bg-[#17233a] text-white select-none relative z-50">
+      <nav className="sticky top-0 bg-[#17233a] text-white select-none relative z-50 ">
         <div className="border-b border-slate-800/60">
           <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10">
             <div className="relative flex items-center justify-between h-20 md:h-24">
               {/* LEFT - Desktop menu */}
               <div className="hidden lg:flex items-center gap-7 xl:gap-10 text-sm uppercase font-semibold tracking-wide">
                 <a href="#" className="hover:text-cyan-300 transition-colors">
-                  HOME
+                  Início
                 </a>
                 {/* MAPS BY PLACE - with dropdown */}
                 <div
@@ -112,7 +110,7 @@ export default function Navbar() {
                   onMouseLeave={handleMouseLeave}
                 >
                   <button className="flex items-center gap-1 hover:text-cyan-300 transition-colors">
-                    MAPS BY PLACE
+                    BIBLIOTECA DE GEODADOS
                     <ChevronDown
                       size={16}
                       className={`transition-transform ${
@@ -135,7 +133,7 @@ export default function Navbar() {
                     </div>
                   )}
                 </div>
-                {/* MAPS BY THEME - with dropdown */}
+                {/* MAPS BY THEME - with dropdown 
                 <div
                   className="relative"
                   onMouseEnter={() => handleMouseEnter("theme")}
@@ -170,36 +168,49 @@ export default function Navbar() {
                     </div>
                   )}
                 </div>
-                <a href="#" className="hover:text-cyan-300 transition-colors">
-                  REVIEWS
-                </a>
-                <a href="#" className="hover:text-cyan-300 transition-colors">
-                  FAQ
-                </a>
-                <a href="#" className="hover:text-cyan-300 transition-colors">
-                  ABOUT
-                </a>
-                <a href="#" className="hover:text-cyan-300 transition-colors">
-                  CONTACT
-                </a>
+                */}
+                <Link
+                  to={"/services"}
+                  className="hover:text-cyan-300 transition-colors"
+                >
+                  Serivços
+                </Link>
+                <Link
+                  to={"/academia_digital"}
+                  className="hover:text-cyan-300 transition-colors"
+                >
+                  Academia Digital
+                </Link>
+                <Link
+                  href="#"
+                  className="hover:text-cyan-300 transition-colors"
+                >
+                  contacto
+                </Link>
+                <Link
+                  href="#"
+                  className="hover:text-cyan-300 transition-colors"
+                >
+                  Sobre
+                </Link>
               </div>
 
               {/* CENTER - Logo */}
               <div className="pointer-events-none">
                 <div className="text-21xl sm:text-2xl md:text-2xl font-black tracking-tight whitespace-nowrap">
-                  <span>VISUAL</span> <span>WALL MAPS</span>
+                  <span>
+                    <img
+                      src={logo}
+                      alt=""
+                      style={{ width: 40, height: 40, display: "inline-block" }}
+                    />
+                  </span>
+                  <span>Topo</span> <span>GeoCenter</span>
                 </div>
               </div>
 
               {/* RIGHT - Icons */}
               <div className="flex items-center md:gap-6 lg:gap-8">
-                <button className="hidden md:flex items-center gap-1.5 text-sm hover:text-cyan-300 transition-colors">
-                  ANGOLA (CAD $)
-                  <ChevronDown size={14} />
-                </button>
-                <button className="p-1.5 hover:text-cyan-300 transition-colors">
-                  <User size={22} strokeWidth={1.8} />
-                </button>
                 <button className="p-1.5 relative hover:text-cyan-300 transition-colors">
                   <ShoppingCart size={22} strokeWidth={1.8} />
                   <span className="absolute -top-1 -right-1 bg-red-600 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center px-1">

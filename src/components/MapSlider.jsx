@@ -7,34 +7,34 @@ const slides = [
   {
     image:
       "https://images.unsplash.com/photo-1717343824623-06293a62a70d?q=80&w=1221&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    title: "TOPOGRAPHIC MAPS",
+    title: "DADOS GEOREFERENCIADOS",
     description:
-      "Browse our wide selection of maps covering countries and regions all over the world. Proudly display your home or places you visited.",
-    buttonText: "SHOP TOPO SERIES",
+      "Todos os dados possuem coordenadas precisas e georreferenciação completa, garantindo total confiabilidade para análises espaciais e territoriais.",
+    buttonText: "EXPLORAR DADOS",
   },
   {
     image:
       "https://images.unsplash.com/photo-1581922819941-6ab31ab79afc?q=80&w=2080&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    title: "VINTAGE COLLECTION",
+    title: "ALTA PRECISÃO",
     description:
-      "Discover beautifully aged topographic maps with authentic historical details and classic cartographic style.",
-    buttonText: "EXPLORE VINTAGE",
+      "Dados de alta precisão desenvolvidos para projetos críticos de engenharia, mineração, infraestrutura e análise ambiental.",
+    buttonText: "VER SOLUÇÕES",
   },
   {
     image:
       "https://plus.unsplash.com/premium_photo-1712832299675-de3d282b904a?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    title: "MODERN LIDAR SERIES",
+    title: "MARKETPLACE SEGURO",
     description:
-      "High-precision relief maps created with the latest LiDAR technology. Perfect for adventurers and geography enthusiasts.",
-    buttonText: "VIEW LIDAR MAPS",
+      "Plataforma de compra e venda de dados geoespaciais com transações seguras, rastreáveis e confiáveis.",
+    buttonText: "ACESSAR MARKETPLACE",
   },
   {
     image:
       "https://plus.unsplash.com/premium_photo-1712828731398-ad18ac5a9748?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    title: "COASTAL & ISLAND MAPS",
+    title: "PRODUÇÃO GEOES42",
     description:
-      "Detailed maps of coastlines, islands and archipelagos with stunning bathymetric and topographic representation.",
-    buttonText: "DISCOVER COASTAL",
+      "Dados produzidos pela GEOES42 e parceiros certificados, seguindo rigorosos padrões técnicos e de qualidade.",
+    buttonText: "CONHECER A GEOES42",
   },
 ];
 
@@ -80,6 +80,7 @@ export default function MapSlider() {
     <div className="relative w-full bg-gray-100 overflow-hidden">
       {/* Imagem de fundo com efeito parallax leve */}
       <div
+        key={`bg-${currentIndex}`}
         className={`absolute inset-0 animation-zoom-in`}
         style={{
           backgroundImage: `url(${currentSlide.image})`,
@@ -117,7 +118,7 @@ export default function MapSlider() {
           {/* Botão */}
           <a
             href="#"
-            className="inline-block bg-cyan-600 hover:bg-cyan-500 text-white font-bold uppercase tracking-wider px-10 py-5 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg opacity-0 animate-fade-in-up"
+            className="inline-block text-white border border-white hover:bg-white hover:text-black font-bold uppercase tracking-wider px-10 py-5 transition-all duration-300 transform hover:scale-105 shadow-lg opacity-0 animate-fade-in-up"
             style={{ animationDelay: "0.5s" }}
             key={`btn-${currentIndex}`}
           >
@@ -129,7 +130,7 @@ export default function MapSlider() {
       {/* Botões de navegação */}
       <button
         onClick={prevSlide}
-        className="absolute left-6 top-1/2 -translate-y-1/2 z-30 bg-black/40 hover:bg-black/60 text-white p-4 rounded-full transition-all duration-300"
+        className="hidden md:block absolute left-6 top-1/2 -translate-y-1/2 z-30 bg-black/40 hover:bg-black/60 text-white p-4 rounded-full transition-all duration-300"
         aria-label="Previous slide"
       >
         <ChevronLeft size={32} />
@@ -137,7 +138,7 @@ export default function MapSlider() {
 
       <button
         onClick={nextSlide}
-        className="absolute right-6 top-1/2 -translate-y-1/2 z-30 bg-black/40 hover:bg-black/60 text-white p-4 rounded-full transition-all duration-300"
+        className="hidden md:block absolute right-6 top-1/2 -translate-y-1/2 z-30 bg-black/40 hover:bg-black/60 text-white p-4 rounded-full transition-all duration-300"
         aria-label="Next slide"
       >
         <ChevronRight size={32} />
@@ -151,8 +152,8 @@ export default function MapSlider() {
             onClick={() => setCurrentIndex(index)}
             className={`w-3 h-3 rounded-full transition-all duration-300 ${
               index === currentIndex
-                ? "bg-cyan-400 w-10"
-                : "bg-white/50 hover:bg-white/80"
+                ? "bg-cyan-400/15 w-10"
+                : "bg-white/10 hover:bg-white/80"
             }`}
             aria-label={`Go to slide ${index + 1}`}
           />

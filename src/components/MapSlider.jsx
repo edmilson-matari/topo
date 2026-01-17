@@ -98,12 +98,12 @@ export default function MapSlider() {
         <div className="max-w-5xl w-full text-center md:text-left">
           {/* Título com animação */}
           <h2
-            className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tight text-white mb-6 opacity-0 animate-fade-in-up"
+            className="text-2xl md:text-6xl lg:text-7xl font-black tracking-tight text-white mb-6 opacity-0 animate-fade-in-up"
             style={{ animationDelay: "0.1s" }}
             key={`title-${currentIndex}`}
           >
             {currentSlide.title}
-            <span className="block h-1.5 w-20 bg-cyan-400 mt-4 mx-auto md:mx-0"></span>
+            <span className="block h-1.5 w-2 bg-cyan-400 mt-4 mx-auto md:mx-0"></span>
           </h2>
 
           {/* Descrição com animação */}

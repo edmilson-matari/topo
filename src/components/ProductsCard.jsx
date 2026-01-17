@@ -99,13 +99,12 @@ export default function ProductsGrid() {
                     hoveredIndex === index ? "scale-110" : "scale-100"
                   }`}
                 />
-
                 {/* Overlay gradiente */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
               </div>
 
               {/* Conteúdo */}
-              <div className="p-6 pb-8 relative">
+              <div className="p-6 pb-28 relative">
                 <span className="inline-block px-3 py-1 mb-3 text-xs font-semibold tracking-wider text-black uppercase bg-blue-100">
                   {product.type}
                 </span>
@@ -114,17 +113,18 @@ export default function ProductsGrid() {
                   {product.title}
                 </h3>
 
-                <p className="text-gray-600 mb-6 line-clamp-2 min-h-[3rem]">
+                <p className="text-gray-600 line-clamp-2 min-h-[0.5rem]">
                   {product.subtitle}
                 </p>
 
-                {/* Botão que aparece no hover */}
+                {/* Botão sempre visível em mobile, aparece no hover em desktop */}
                 <div
-                  className={`absolute bottom-6 left-6 right-6 transform transition-all duration-500 ${
-                    hoveredIndex === index
-                      ? "translate-y-2 opacity-100"
-                      : "translate-y-10 opacity-0"
-                  }`}
+                  className={`
+                    absolute bottom-6 left-6 right-6 transform transition-all duration-500
+                    opacity-100 translate-y-0   // sempre visível em mobile
+                    md:opacity-0 md:translate-y-10
+                    group-hover:opacity-100 group-hover:translate-y-0
+                  `}
                 >
                   <a
                     href={product.link}

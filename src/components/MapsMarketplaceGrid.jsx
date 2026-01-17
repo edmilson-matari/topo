@@ -22,7 +22,7 @@ const maps = [
     supplier: "TOPO GEOCENTER",
     price: "250.000 Kz",
     image:
-      "v0-geoes-42-platform-development.vercel.app/digital-elevation-model-terrain.jpg",
+      "https://v0-geoes-42-platform-development.vercel.app/digital-elevation-model-terrain.jpg",
     link: "/mapas/mdt-belas",
   },
   {

@@ -315,58 +315,43 @@ export default function Navbar() {
               ${currentMenu ? "-translate-x-full" : "translate-x-0"}`}
           >
             <div className="h-full overflow-y-auto py-6 px-5 space-y-1 text-base font-medium">
-              <a
-                href="#"
+              <Link
+                to={"/"}
                 className="block py-3 px-4 rounded-md hover:bg-slate-800/50 hover:text-cyan-300 transition"
                 onClick={() => setIsSidebarOpen(false)}
               >
-                Home
-              </a>
+                Início
+              </Link>
 
               <button
                 onClick={() => openSubmenu("place")}
                 className="w-full text-left py-3 px-4 rounded-md hover:bg-slate-800/50 hover:text-cyan-300 transition flex justify-between items-center"
               >
-                Maps by Place
+                Biblioteca de Geodados
                 <ChevronLeft size={20} className="rotate-180" />
               </button>
 
-              <button
-                onClick={() => openSubmenu("theme")}
-                className="w-full text-left py-3 px-4 rounded-md hover:bg-slate-800/50 hover:text-cyan-300 transition flex justify-between items-center"
-              >
-                Maps by Theme
-                <ChevronLeft size={20} className="rotate-180" />
-              </button>
-
-              <a
-                href="#"
+              <Link
+                to={"/services"}
                 className="block py-3 px-4 rounded-md hover:bg-slate-800/50 hover:text-cyan-300 transition"
                 onClick={() => setIsSidebarOpen(false)}
               >
-                Reviews
-              </a>
-              <a
-                href="#"
+                Serviços
+              </Link>
+              <Link
+                to={"academia_digital"}
                 className="block py-3 px-4 rounded-md hover:bg-slate-800/50 hover:text-cyan-300 transition"
                 onClick={() => setIsSidebarOpen(false)}
               >
-                FAQ
-              </a>
-              <a
-                href="#"
+                Academia Digital
+              </Link>
+              <Link
+                to={"/contacto"}
                 className="block py-3 px-4 rounded-md hover:bg-slate-800/50 hover:text-cyan-300 transition"
                 onClick={() => setIsSidebarOpen(false)}
               >
-                About
-              </a>
-              <a
-                href="#"
-                className="block py-3 px-4 rounded-md hover:bg-slate-800/50 hover:text-cyan-300 transition"
-                onClick={() => setIsSidebarOpen(false)}
-              >
-                Contact
-              </a>
+                Contacto
+              </Link>
             </div>
           </div>
 

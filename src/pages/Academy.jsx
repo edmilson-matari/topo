@@ -1,5 +1,6 @@
 import React from "react";
 import MapBanner from "../components/Banner";
+import ProductsGrid from "../components/ProductsCard";
 
 export default function Academy() {
   return (
@@ -11,6 +12,7 @@ export default function Academy() {
           "https://static.vecteezy.com/system/resources/thumbnails/071/063/341/small/antique-world-globe-with-detailed-cartography-featuring-africa-and-europe-free-photo.jpg"
         }
       />
+      <ProductsGrid />
     </>
   );
 }

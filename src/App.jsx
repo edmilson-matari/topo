@@ -5,6 +5,7 @@ import Layout from "./components/Layout";
 import Home from "./pages/Home";
 import Services from "./pages/Services";
 import Academy from "./pages/Academy";
+import Contact from "./pages/Contact";
 
 const route = createBrowserRouter([
   {
@@ -21,6 +22,10 @@ const route = createBrowserRouter([
       {
         element: <Academy />,
         path: "/academia_digital",
+      },
+      {
+        element: <Contact />,
+        path: "/contacto",
       },
     ],
   },

@@ -98,11 +98,21 @@ export default function Navbar() {
         <div className="border-b border-slate-800/60">
           <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10">
             <div className="relative flex items-center justify-between h-20 md:h-24">
+              <Link to={"/"}>
+                <div className="pointer-events-none">
+                  <div className="text-21xl sm:text-2xl md:text-2xl font-black tracking-tight whitespace-nowrap">
+                    <span>Topo</span> <span>GeoCenter</span>
+                  </div>
+                </div>
+              </Link>
               {/* LEFT - Desktop menu */}
               <div className="hidden lg:flex items-center gap-7 xl:gap-10 text-sm uppercase font-semibold tracking-wide">
-                <a href="#" className="hover:text-cyan-300 transition-colors">
+                <Link
+                  to={"/"}
+                  className="hover:text-cyan-300 transition-colors"
+                >
                   Início
-                </a>
+                </Link>
                 {/* MAPS BY PLACE - with dropdown */}
                 <div
                   className="relative"
@@ -182,31 +192,11 @@ export default function Navbar() {
                   Academia Digital
                 </Link>
                 <Link
-                  href="#"
+                  to={"/contacto"}
                   className="hover:text-cyan-300 transition-colors"
                 >
                   contacto
                 </Link>
-                <Link
-                  href="#"
-                  className="hover:text-cyan-300 transition-colors"
-                >
-                  Sobre
-                </Link>
-              </div>
-
-              {/* CENTER - Logo */}
-              <div className="pointer-events-none">
-                <div className="text-21xl sm:text-2xl md:text-2xl font-black tracking-tight whitespace-nowrap">
-                  <span>
-                    <img
-                      src={logo}
-                      alt=""
-                      style={{ width: 40, height: 40, display: "inline-block" }}
-                    />
-                  </span>
-                  <span>Topo</span> <span>GeoCenter</span>
-                </div>
               </div>
 
               {/* RIGHT - Icons */}

@@ -124,7 +124,7 @@ export default function MapsMarketplaceGrid() {
           <select
             value={selectedLocation}
             onChange={(e) => setSelectedLocation(e.target.value)}
-            className="w-full sm:w-56 px-4 py-3 border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
+            className="w-full sm:w-56 px-4 py-3 border border-gray-300 focus:ring-2 bg-[#17233a] text-white focus:ring-[#17233a] outline-none"
           >
             <option value="">Todas as localizações</option>
             {locations.map((loc) => (
@@ -137,7 +137,7 @@ export default function MapsMarketplaceGrid() {
           <select
             value={selectedType}
             onChange={(e) => setSelectedType(e.target.value)}
-            className="w-full sm:w-56 px-4 py-3 border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
+            className="w-full sm:w-56 px-4 py-3 border border-gray-300 focus:ring-2 bg-[#17233a] text-white focus:ring-[#17233a] outline-none"
           >
             <option value="">Todos os tipos</option>
             {types.map((type) => (

@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import Services from "./pages/Services";
 import Academy from "./pages/Academy";
 import Contact from "./pages/Contact";
+import Library from "./pages/Library";
 
 const route = createBrowserRouter([
   {
@@ -26,6 +27,10 @@ const route = createBrowserRouter([
       {
         element: <Contact />,
         path: "/contacto",
+      },
+      {
+        element: <Library />,
+        path: "/biblioteca_de_geodados",
       },
     ],
   },

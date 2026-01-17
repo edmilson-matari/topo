@@ -5,7 +5,7 @@ export default function MapBanner({ backgroundUrl, title, description }) {
     <div className="relative w-full h-96 overflow-hidden bg-gray-100">
       {/* Background Image Layer */}
       <div
-        className="absolute inset-0 bg-cover bg-center opacity-90"
+        className="absolute inset-0 bg-cover bg-center blur-[3px]"
         style={{
           backgroundImage: `url(${backgroundUrl})`,
           backgroundBlendMode: "multiply",

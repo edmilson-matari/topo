@@ -230,11 +230,6 @@ function Contact() {
 export default function ContactPage() {
   return (
     <>
-      <MapBanner
-        title={"Contacto"}
-        description={"Entre em contato conosco para informações ou suporte"}
-        backgroundUrl={contact}
-      />
       <Contact />
     </>
   );

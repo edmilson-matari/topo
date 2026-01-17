@@ -119,15 +119,17 @@ export default function Navbar() {
                   onMouseEnter={() => handleMouseEnter("place")}
                   onMouseLeave={handleMouseLeave}
                 >
-                  <button className="flex items-center gap-1 hover:text-cyan-300 transition-colors">
-                    BIBLIOTECA DE GEODADOS
-                    <ChevronDown
-                      size={16}
-                      className={`transition-transform ${
-                        activeDropdown === "place" ? "rotate-180" : ""
-                      }`}
-                    />
-                  </button>
+                  <Link to={"/biblioteca_de_geodados"}>
+                    <button className="flex items-center gap-1 hover:text-cyan-300 transition-colors">
+                      BIBLIOTECA DE GEODADOS
+                      <ChevronDown
+                        size={16}
+                        className={`transition-transform ${
+                          activeDropdown === "place" ? "rotate-180" : ""
+                        }`}
+                      />
+                    </button>
+                  </Link>
 
                   {activeDropdown === "place" && (
                     <div className="absolute top-full left-0 mt-2 w-64 bg-[#17233a] border border-slate-700 rounded-md shadow-xl py-3 z-50">

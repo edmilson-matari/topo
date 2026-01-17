@@ -18,7 +18,7 @@ const categories = [
   },
   {
     title: "CURVAS DE NÍVEL",
-    subtitle: "NOVA SCOTIA",
+    subtitle: "",
     image:
       "https://www.infoescola.com/wp-content/uploads/2008/02/curva-de-nivel.jpg",
     link: "/collections/geology-maps",
@@ -26,14 +26,14 @@ const categories = [
 
   {
     title: "MAPA TEMÁTICO",
-    subtitle: "NOVA SCOTIA",
+    subtitle: "",
     image:
       "https://www.researchgate.net/profile/Nuno-Costa-19/publication/337398699/figure/fig6/AS:958830917726213@1605614513701/Esboco-Geografico-de-Angola-Agencia-Geral-das-Colonias-Escala-1-2-500-000-Lisboa.jpg",
     link: "/collections/geology-maps",
   },
   {
     title: "SHAPEFILE/GEODATABASE",
-    subtitle: "NOVA SCOTIA",
+    subtitle: "",
     image:
       "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Angola_Map.jpg/960px-Angola_Map.jpg",
     link: "/collections/geology-maps",

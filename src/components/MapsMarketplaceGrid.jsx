@@ -169,7 +169,7 @@ export default function MapsMarketplaceGrid() {
 
               {/* Conteúdo - flex-grow para ocupar espaço */}
               <div className="p-5 flex flex-col flex-grow">
-                <span className="inline-block px-3 py-1 mb-2 text-xs font-semibold tracking-wider text-black uppercase bg-blue-100 rounded">
+                <span className="inline-block px-3 py-1 mb-2 text-xs font-semibold tracking-wider text-black uppercase bg-blue-100">
                   {product.type}
                 </span>
 

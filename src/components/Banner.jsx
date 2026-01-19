@@ -2,10 +2,10 @@ import React from "react";
 
 export default function MapBanner({ backgroundUrl, title, description }) {
   return (
-    <div className="relative w-full h-96 overflow-hidden bg-gray-100">
+    <div className="relative w-full h-100 overflow-hidden bg-gray-100">
       {/* Background Image Layer */}
       <div
-        className="absolute inset-0 bg-cover bg-center blur-[3px]"
+        className="absolute inset-0 bg-cover bg-center"
         style={{
           backgroundImage: `url(${backgroundUrl})`,
           backgroundBlendMode: "multiply",

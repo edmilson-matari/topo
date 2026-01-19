@@ -1,6 +1,7 @@
 // components/MapSlider.jsx
 import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 // Imagens reais de exemplo (substitua pelas suas URLs reais)
 const slides = [
@@ -11,6 +12,7 @@ const slides = [
     description:
       "Todos os dados possuem coordenadas precisas e georreferenciação completa, garantindo total confiabilidade para análises espaciais e territoriais.",
     buttonText: "EXPLORAR DADOS",
+    link: "/biblioteca_de_geodados",
   },
   {
     image:
@@ -19,6 +21,7 @@ const slides = [
     description:
       "Dados de alta precisão desenvolvidos para projetos críticos de engenharia, mineração, infraestrutura e análise ambiental.",
     buttonText: "VER SOLUÇÕES",
+    link: "/biblioteca_de_geodados",
   },
   {
     image:
@@ -27,6 +30,7 @@ const slides = [
     description:
       "Plataforma de compra e venda de dados geoespaciais com transações seguras, rastreáveis e confiáveis.",
     buttonText: "ACESSAR MARKETPLACE",
+    link: "/biblioteca_de_geodados",
   },
   {
     image:
@@ -35,6 +39,7 @@ const slides = [
     description:
       "Dados produzidos pela GEOES42 e parceiros certificados, seguindo rigorosos padrões técnicos e de qualidade.",
     buttonText: "CONHECER A GEOES42",
+    link: "#",
   },
 ];
 
@@ -116,14 +121,14 @@ export default function MapSlider() {
           </p>
 
           {/* Botão */}
-          <a
-            href="#"
+          <Link
+            to={currentSlide.link || "#"}
             className="inline-block text-white border border-white hover:bg-white hover:text-black font-bold uppercase tracking-wider px-10 py-5 transition-all duration-300 transform hover:scale-105 shadow-lg opacity-0 animate-fade-in-up"
             style={{ animationDelay: "0.5s" }}
             key={`btn-${currentIndex}`}
           >
             {currentSlide.buttonText}
-          </a>
+          </Link>
         </div>
       </div>
 

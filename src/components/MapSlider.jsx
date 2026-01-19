@@ -77,7 +77,7 @@ export default function MapSlider() {
   const currentSlide = slides[currentIndex];
 
   return (
-    <div className="relative w-full bg-gray-100 overflow-hidden">
+    <div className="relative h-screen w-full z-0 bg-gray-100 overflow-hidden pt-15">
       {/* Imagem de fundo com efeito parallax leve */}
       <div
         key={`bg-${currentIndex}`}

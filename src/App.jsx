@@ -7,6 +7,8 @@ import Services from "./pages/Services";
 import Academy from "./pages/Academy";
 import Contact from "./pages/Contact";
 import Library from "./pages/Library";
+import AdminHome from "./pages/Admin/AdminHome";
+import AdminLayout from "./components/Admin/AdminLayout";
 
 const route = createBrowserRouter([
   {
@@ -31,6 +33,15 @@ const route = createBrowserRouter([
       {
         element: <Library />,
         path: "/biblioteca_de_geodados",
+      },
+    ],
+  },
+  {
+    element: <AdminLayout />,
+    children: [
+      {
+        element: <AdminHome />,
+        path: "/admin",
       },
     ],
   },

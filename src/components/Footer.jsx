@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
@@ -35,22 +36,28 @@ export default function Footer() {
             <h4 className="text-lg font-semibold mb-4">Plataforma</h4>
             <ul className="space-y-2">
               <li>
-                <a
-                  href="#"
+                <Link
+                  to={"/biblioteca_de_geodados"}
                   className="text-white hover:text-gray transition-colors duration-200 text-sm"
                 >
                   Biblioteca de Geodados
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="transition-colors duration-200 text-sm">
+                <Link
+                  to={"/services"}
+                  className="transition-colors duration-200 text-sm"
+                >
                   Serviços
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="transition-colors duration-200 text-sm">
+                <Link
+                  to={"/academia_digital"}
+                  className="transition-colors duration-200 text-sm"
+                >
                   Academia Digital
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -65,9 +72,12 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="#" className="transition-colors duration-200 text-sm">
+                <Link
+                  to={"/contacto"}
+                  className="transition-colors duration-200 text-sm"
+                >
                   Contatos
-                </a>
+                </Link>
               </li>
               <li>
                 <a href="#" className="transition-colors duration-200 text-sm">

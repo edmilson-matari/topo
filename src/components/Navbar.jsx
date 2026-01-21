@@ -94,14 +94,14 @@ export default function Navbar() {
   return (
     <>
       {/* === MAIN NAVBAR === */}
-      <header className="fixed top-0 left-0 w-full z-50 flex justify-center">
+      <header className="fixed top-5 left-0 w-full z-50 flex justify-center">
         <nav
           className="pointer-events-auto w-[1600px] text-white rounded-full
-                    bg-[#17233a]/80 backdrop-blur-md border border-white/10"
+                    bg-[#17233a]/80 backdrop-blur-md"
         >
           <div className="">
-            <div className="max-w-[1600px] mx-auto px-2 sm:px-2 lg:px-5">
-              <div className="relative flex items-center justify-between h-20 md:h-24">
+            <div className="max-w-[1600px] mx-auto py-3 px-2 sm:px-2 lg:px-5">
+              <div className="relative flex items-center justify-between">
                 <Link to={"/"}>
                   <div className="pointer-events-none">
                     <div className="text-21xl sm:text-2xl md:text-2xl font-black tracking-tight whitespace-nowrap">

@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import MapDetailAside from "./MapDetailAside";
 
 const maps = [
   {
@@ -80,6 +81,16 @@ export default function MapsMarketplaceGrid() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedLocation, setSelectedLocation] = useState("");
   const [selectedType, setSelectedType] = useState("");
+  const [selectedProduct, setSelectedProduct] = useState(null);
+  const [isAsideOpen, setIsAsideOpen] = useState(false);
+
+  useEffect(() => {
+    document.body.style.overflow = isAsideOpen ? "hidden" : "";
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isAsideOpen]);
 
   const locations = [
     "Luanda, Bengo",
@@ -201,19 +212,26 @@ export default function MapsMarketplaceGrid() {
 
                 {/* Botão */}
                 <div
+                  onClick={() => {
+                    setSelectedProduct(product);
+                    setIsAsideOpen(true);
+                  }}
                   className={`
+                    cursor-pointer
                     transition-all duration-500 mt-auto
                     ${hoveredIndex === index ? "opacity-100 translate-y-0" : "sm:opacity-0 sm:translate-y-8"}
                     opacity-100 translate-y-0   // sempre visível em mobile (< sm)
                   `}
                 >
-                  <a
-                    href={product.link}
-                    className="block w-full py-3.5 sm:py-4 px-6 text-center text-black border border-black font-semibold tracking-wide shadow-lg hover:bg-[#17233a] hover:text-white transition-all duration-300 text-sm sm:text-base"
-                  >
+                  <span className="block w-full py-3.5 sm:py-4 px-6 text-center text-black border border-black font-semibold tracking-wide shadow-lg hover:bg-[#17233a] hover:text-white transition-all duration-300 text-sm sm:text-base">
                     Ver detalhes & Comprar
-                  </a>
+                  </span>
                 </div>
+                <MapDetailAside
+                  product={selectedProduct}
+                  isOpen={isAsideOpen}
+                  onClose={() => setIsAsideOpen(false)}
+                />
               </div>
             </div>
           ))}

@@ -1,5 +1,6 @@
 // components/MapCategories.jsx
 import { useState } from "react";
+import ServiceDetailAside from "./ServiceDetailAside";
 
 const services = [
   {
@@ -9,6 +10,11 @@ const services = [
       "Levantamentos de campo com alta precisão para projetos de engenharia, construção civil e planejamento territorial.",
     image:
       "https://elojr.com.br/wp-content/uploads/2020/10/Levantamento-topografico.jpg",
+    images: [
+      "https://px-web-images3.pixpa.com/...",
+      "https://drone-aero-exemplo-2.jpg",
+      "https://drone-aero-exemplo-3.jpg",
+    ],
     link: "/services/levantamento-topografico",
   },
   {
@@ -60,6 +66,8 @@ const services = [
 
 export default function ServicesCard() {
   const [hoveredIndex, setHoveredIndex] = useState(null);
+  const [selectedService, setSelectedService] = useState(null);
+  const [isAsideOpen, setIsAsideOpen] = useState(false);
 
   return (
     <section className="py-16 md:py-24">
@@ -100,6 +108,10 @@ export default function ServicesCard() {
 
                 {/* Botão que sobe de baixo */}
                 <div
+                  onClick={() => {
+                    setSelectedService(category);
+                    setIsAsideOpen(true);
+                  }}
                   className={`mt-6 transform transition-all duration-500 ease-out
                     ${
                       hoveredIndex === index
@@ -107,19 +119,24 @@ export default function ServicesCard() {
                         : "translate-y-12 opacity-0"
                     }`}
                 >
-                  <a
-                    href={category.link}
+                  <span
                     className="inline-block text-white bg-transparent border border-white font-semibold uppercase tracking-wider 
                       px-8 py-4 shadow-lg hover:bg-white hover:text-black hover:border-color-white transition-bg duration-300"
                   >
                     Solicitar Serviço
-                  </a>
+                  </span>
                 </div>
               </div>
             </div>
           ))}
         </div>
       </div>
+      {/* Aside */}
+      <ServiceDetailAside
+        service={selectedService}
+        isOpen={isAsideOpen}
+        onClose={() => setIsAsideOpen(false)}
+      />
     </section>
   );
 }

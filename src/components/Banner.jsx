@@ -12,7 +12,7 @@ export default function MapBanner({ backgroundUrl, title, description }) {
         }}
       >
         {/* Overlay gradient for better text readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-white/40 via-transparent to-white/20"></div>
+        <div className="absolute inset-0 bg-black opacity-54"></div>
       </div>
 
       {/* Content Container */}

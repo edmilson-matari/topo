@@ -1,7 +1,7 @@
 // components/Navbar.jsx
 import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import logo from "../img/logo.png";
+import logo from "../img/Recorted_logo.png";
 import {
   ChevronLeft,
   ChevronDown,
@@ -100,11 +100,16 @@ export default function Navbar() {
                     bg-[#17233a]/80 backdrop-blur-md"
         >
           <div className="">
-            <div className="max-w-[1600px] mx-auto py-3 px-2 sm:px-2 lg:px-5">
+            <div className="max-w-[1600px] mx-auto px-2 sm:px-2 lg:px-5">
               <div className="relative flex items-center justify-between">
                 <Link to={"/"}>
                   <div className="pointer-events-none">
-                    <div className="text-21xl sm:text-2xl md:text-2xl font-black tracking-tight whitespace-nowrap">
+                    <div className="flex items-center text-21xl sm:text-2xl md:text-2xl font-black tracking-tight whitespace-nowrap">
+                      <img
+                        className="w-[70px]"
+                        src={logo}
+                        alt="logo-topo-geocenter"
+                      />
                       <span>GEOES42</span>
                     </div>
                   </div>

@@ -68,6 +68,10 @@ export default function ServicesCard() {
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const [selectedService, setSelectedService] = useState(null);
   const [isAsideOpen, setIsAsideOpen] = useState(false);
+  const openAside = (serv) => {
+    setSelectedService(serv);
+    setTimeout(() => setIsAsideOpen(true), 10); // pequeno delay ajuda a transição
+  };
 
   return (
     <section className="py-16 md:py-24">
@@ -109,8 +113,7 @@ export default function ServicesCard() {
                 {/* Botão que sobe de baixo */}
                 <div
                   onClick={() => {
-                    setSelectedService(category);
-                    setIsAsideOpen(true);
+                    openAside(category);
                   }}
                   className={`mt-6 transform transition-all duration-500 ease-out
                     ${
@@ -131,7 +134,6 @@ export default function ServicesCard() {
           ))}
         </div>
       </div>
-      {/* Aside */}
       <ServiceDetailAside
         service={selectedService}
         isOpen={isAsideOpen}

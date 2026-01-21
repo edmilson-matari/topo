@@ -1,5 +1,6 @@
 // components/ProductsGrid.jsx
 import { useState } from "react";
+import ProductDetailAside from "./ProductDetailAside";
 
 const products = [
   {
@@ -77,6 +78,13 @@ const products = [
 
 export default function ProductsGrid() {
   const [hoveredIndex, setHoveredIndex] = useState(null);
+  const [selectedProduct, setSelectedProduct] = useState(null);
+  const [isAsideOpen, setIsAsideOpen] = useState(false);
+
+  const openProduct = (product) => {
+    setSelectedProduct(product);
+    setIsAsideOpen(true);
+  };
 
   return (
     <section className="py-16 md:py-24 bg-gray-50">
@@ -119,6 +127,7 @@ export default function ProductsGrid() {
 
                 {/* Botão sempre visível em mobile, aparece no hover em desktop */}
                 <div
+                  onClick={() => openProduct(product)}
                   className={`
                     absolute bottom-6 left-6 right-6 transform transition-all duration-500
                     opacity-100 translate-y-0   // sempre visível em mobile
@@ -126,18 +135,21 @@ export default function ProductsGrid() {
                     group-hover:opacity-100 group-hover:translate-y-0
                   `}
                 >
-                  <a
-                    href={product.link}
-                    className="block w-full py-4 px-6 text-center text-black border border-black font-semibold tracking-wide shadow-lg hover:bg-[#17233a] hover:text-white transition-all duration-300"
-                  >
+                  <span className="block w-full py-4 px-6 text-center text-black border border-black font-semibold tracking-wide shadow-lg hover:bg-[#17233a] hover:text-white transition-all duration-300">
                     Ver detalhes & Comprar
-                  </a>
+                  </span>
                 </div>
               </div>
             </div>
           ))}
         </div>
       </div>
+      {/* Aside */}
+      <ProductDetailAside
+        product={selectedProduct}
+        isOpen={isAsideOpen}
+        onClose={() => setIsAsideOpen(false)}
+      />
     </section>
   );
 }

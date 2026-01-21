@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function MapCTA() {
   return (
@@ -26,9 +27,11 @@ export default function MapCTA() {
         <p className="text-blue-100 text-lg md:text-xl mb-8">
           Acesse nossa biblioteca completa e encontre os dados que você precisa
         </p>
-        <button className="bg-transparent border border-white hover:bg-white hover:text-black text-white font-semibold px-8 py-4 text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-xl">
-          Acessar Biblioteca de Geodados
-        </button>
+        <Link to={"/biblioteca_de_geodados"}>
+          <button className="bg-transparent border border-white hover:bg-white hover:text-black text-white font-semibold px-8 py-4 text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-xl">
+            Acessar Biblioteca de Geodados
+          </button>
+        </Link>
       </div>
     </div>
   );

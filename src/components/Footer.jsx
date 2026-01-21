@@ -21,7 +21,10 @@ export default function Footer() {
             <p className="text-sm leading-relaxed">
               Biblioteca e Marketplace de Geodados de Angola
             </p>
-            <button className="mt-6 flex items-center gap-2 text-emerald-300 hover:text-white transition-colors duration-300 text-sm font-medium">
+            <button
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              className="mt-6 flex items-center gap-2 text-emerald-300 hover:text-white transition-colors duration-300 text-sm font-medium"
+            >
               <svg
                 className="w-4 h-4"
                 fill="none"

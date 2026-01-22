@@ -9,6 +9,7 @@ import Contact from "./pages/Contact";
 import Library from "./pages/Library";
 import AdminHome from "./pages/Admin/AdminHome";
 import AdminLayout from "./components/Admin/AdminLayout";
+import { CartProvider } from "./components/contexts/CartContext";
 
 const route = createBrowserRouter([
   {
@@ -49,9 +50,9 @@ const route = createBrowserRouter([
 
 const App = () => {
   return (
-    <div>
+    <CartProvider>
       <RouterProvider router={route} />
-    </div>
+    </CartProvider>
   );
 };
 

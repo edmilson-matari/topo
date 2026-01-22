@@ -2,6 +2,8 @@
 import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import logo from "../img/Recorted_logo.png";
+import { useCart } from "./contexts/CartContext";
+import CartDrawer from "./CartDrawer";
 import {
   ChevronLeft,
   ChevronDown,
@@ -17,6 +19,11 @@ export default function Navbar() {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [timeoutId, setTimeoutId] = useState(null);
+  const {
+    state: { totalItems },
+    isCartOpen,
+    setIsCartOpen,
+  } = useCart();
 
   const handleMouseEnter = (menu) => {
     if (timeoutId) clearTimeout(timeoutId);
@@ -212,11 +219,17 @@ export default function Navbar() {
 
                 {/* RIGHT - Icons */}
                 <div className="flex items-center md:gap-6 lg:gap-8">
-                  <button className="p-1.5 relative hover:text-cyan-300 transition-colors">
+                  <button
+                    className="p-1.5 relative hover:text-cyan-300 transition-colors"
+                    onClick={() => setIsCartOpen(!isCartOpen)}
+                    aria-label="Carrinho"
+                  >
                     <ShoppingCart size={22} strokeWidth={1.8} />
-                    <span className="absolute -top-1 -right-1 bg-red-600 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center px-1">
-                      0
-                    </span>
+                    {totalItems > 0 && (
+                      <span className="absolute -top-1 -right-1 bg-red-600 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center px-1">
+                        {totalItems}
+                      </span>
+                    )}
                   </button>
 
                   {/* Search button */}
@@ -408,6 +421,7 @@ export default function Navbar() {
           </div>
         </div>
       </header>
+      <CartDrawer />
     </>
   );
 }

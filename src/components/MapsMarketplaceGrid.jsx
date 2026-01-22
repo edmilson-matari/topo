@@ -3,73 +3,79 @@ import MapDetailAside from "./MapDetailAside";
 
 const maps = [
   {
+    id: 0,
     title: "Ortofoto Urbana - Luanda Centro",
     type: "Ortofoto",
     subtitle: "Luanda, Bengo",
     precision: "Precisão milimétrica (5cm)",
     date: "15/01/2024",
     supplier: "TOPO GEOCENTER",
-    price: "150.000 Kz",
+    price: 150000,
     image:
       "https://v0-geoes-42-platform-development.vercel.app/aerial-orthophoto-urban-map.jpg",
     link: "/mapas/ortofoto-luanda-centro",
   },
   {
+    id: 1,
     title: "Modelo Digital do Terreno - Belas",
     type: "MDT",
     subtitle: "Belas, Luanda",
     precision: "Precisão centimétrica (2cm)",
     date: "20/11/2023",
     supplier: "TOPO GEOCENTER",
-    price: "250.000 Kz",
+    price: 250000,
     image:
       "https://v0-geoes-42-platform-development.vercel.app/digital-elevation-model-terrain.jpg",
     link: "/mapas/mdt-belas",
   },
   {
+    id: 2,
     title: "Curvas de Nível - Malanje",
     type: "Curvas de nível",
     subtitle: "Malanje",
     precision: "Precisão centimétrica (1cm)",
     date: "10/02/2024",
     supplier: "Parceiro Certificado",
-    price: "180.000 Kz",
+    price: 180000,
     image:
       "https://v0-geoes-42-platform-development.vercel.app/contour-lines-elevation-map.jpg",
     link: "/mapas/curvas-nivel-malanje",
   },
   {
+    id: 3,
     title: "Mapa de Uso do Solo - Huambo",
     type: "Mapa Temático",
     subtitle: "Huambo",
     precision: "Precisão centimétrica (25cm)",
     date: "05/10/2023",
     supplier: "Parceiro Certificado",
-    price: "120.000 Kz",
+    price: 120000,
     image:
       "https://v0-geoes-42-platform-development.vercel.app/land-use-map-thematic.jpg",
     link: "/mapas/uso-solo-huambo",
   },
   {
+    id: 4,
     title: "Dados Vetoriais SIG - Infraestrutura",
     type: "Shapefile/Geodatabase",
     subtitle: "Luanda",
     precision: "Precisão centimétrica",
     date: "30/01/2024",
     supplier: "TOPO GEOCENTER",
-    price: "200.000 Kz",
+    price: 20000,
     image:
       "https://v0-geoes-42-platform-development.vercel.app/gis-vector-infrastructure.jpg",
     link: "/mapas/dados-vetoriais-infra",
   },
   {
+    id: 4,
     title: "Mapa de Declividade - Cabinda",
     type: "Mapa Temático",
     subtitle: "Cabinda",
     precision: "Precisão milimétrica (5°)",
     date: "12/12/2023",
     supplier: "Parceiro Certificado",
-    price: "140.000 Kz",
+    price: 40000,
     image:
       "https://v0-geoes-42-platform-development.vercel.app/slope-declivity-map.jpg",
     link: "/mapas/declividade-cabinda",
@@ -207,7 +213,11 @@ export default function MapsMarketplaceGrid() {
 
                 {/* Preço */}
                 <p className="text-xl sm:text-2xl font-bold text-gray-900 mb-5 mt-auto">
-                  {product.price}
+                  {product.price.toLocaleString("pt-AO", {
+                    style: "currency",
+                    currency: "AOA",
+                    minimumFractionDigits: 0,
+                  })}
                 </p>
 
                 {/* Botão */}
